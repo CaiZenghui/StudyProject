@@ -45,7 +45,7 @@ public class UnderlineEditText extends EditText {
         for (int i = 0; i < count; i++) {
             getLineBounds(i, mRect);
             int baseline = (i + 1) * getLineHeight()+10;
-            canvas.drawLine(mRect.left, height, mRect.right, height, mPaint);
+            canvas.drawLine(mRect.left, height*(i+1), mRect.right, height*(i+1), mPaint);
         }
         super.onDraw(canvas);
     }
