@@ -32,7 +32,7 @@ public class UnderlineEditText extends EditText {
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(Color.GRAY);
         mPaint.setAntiAlias(true);
-        this.setLineSpacing(add, mult);
+        setLineSpacing(add, mult);
     }
 
 
@@ -40,12 +40,12 @@ public class UnderlineEditText extends EditText {
 
 
     public void onDraw(Canvas canvas) {
-        Log.d(TAG, "func [onDraw]");
         int count = getLineCount();
+        int height = getLineHeight();
         for (int i = 0; i < count; i++) {
             getLineBounds(i, mRect);
-            int baseline = (i + 1) * getLineHeight();
-            canvas.drawLine(mRect.left, baseline, mRect.right, baseline, mPaint);
+            int baseline = (i + 1) * getLineHeight()+10;
+            canvas.drawLine(mRect.left, height, mRect.right, height, mPaint);
         }
         super.onDraw(canvas);
     }
